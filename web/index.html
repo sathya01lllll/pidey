@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Link Video Grup</title></head>
+<body>
+  <h1>Daftar Video</h1>
+  <ul id="video-list"></ul>
+
+  <script>
+    fetch('../videos.json')
+      .then(res => res.json())
+      .then(data => {
+        const ul = document.getElementById('video-list');
+        data.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${item.text}">${item.text}</a>`;
+          ul.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
