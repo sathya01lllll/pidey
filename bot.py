@@ -12,6 +12,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f.seek(0)
             json.dump(data, f, indent=2)
 
-app = ApplicationBuilder().token("ISI_TOKEN_BOT_KAMU").build()
+app = ApplicationBuilder().token("7770257728:AAEJC6s80zxJaKRZRu8HZOSwx3UhXItf9ww").build()
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 app.run_polling()
