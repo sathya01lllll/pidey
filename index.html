@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transaksi Sathya Store</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
+      padding: 20px;
+    }
+    .box {
+      border: 2px solid #00ff88;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #00ff88;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .output {
+      white-space: pre-wrap;
+      background: #1c1c1c;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    a { color: #00ff88; }
+  </style>
+</head>
+<body>
+  <h2>Form Transaksi Sathya Store</h2>
+  <div class="box">
+    <label>Nama Produk:</label>
+    <input type="text" id="produk" placeholder="Masukkan nama produk" />
+
+    <label>Harga Produk:</label>
+    <input type="text" id="harga" placeholder="Masukkan harga produk" />
+
+    <label>Metode Pembayaran:</label>
+    <select id="payment">
+      <option value="DANA">DANA</option>
+      <option value="OVO">OVO</option>
+      <option value="GOPAY">GOPAY</option>
+      <option value="QRIS">QRIS</option>
+    </select>
+
+    <button onclick="generateTransaksi()">Kirim Transaksi</button>
+  </div>
+
+  <div class="output" id="output"></div>
+
+  <script>
+    function generateTransaksi() {
+      const produk = document.getElementById("produk").value;
+      const harga = document.getElementById("harga").value;
+      const payment = document.getElementById("payment").value;
+      const tanggal = new Date().toLocaleDateString('id-ID', {
+        day: '2-digit', month: 'long', year: 'numeric'
+      });
+
+      const hasil = `
+[ 𝚃𝚁𝙰𝙽𝚂𝙰𝙺𝚂𝙸 𝙱𝙴𝚁𝙷𝙰𝚂𝙸𝙻✅ ]
+        𝙱𝚈 : ꜱᴀᴛʜʏᴀ 𝚂𝚃𝙾𝚁𝙴
+
+📦 ᴘʀᴏᴅᴜᴋ : ${produk}
+💥ʜᴀʀɢᴀ : Rp ${harga}
+🗓️ ᴛᴀɴɢɢᴀʟ : ${tanggal}
+💳 ᴘᴀʏᴍᴇɴᴛ : ${payment}
+💫 ꜱᴛᴀᴛᴜꜱ : ᴅᴏɴᴇ✅
+_______________________________
+*𝚃𝙴𝚁𝙸𝙼𝙰𝙺𝙰𝚂𝙸𝙷 𝚂𝚄𝙳𝙰𝙷 𝙾𝚁𝙳𝙴𝚁*
+*𝚂𝙴𝙼𝙾𝙶𝙰 𝚃𝙴𝚃𝙰𝙿 𝙱𝙴𝚁𝙻𝙰𝙽𝙶𝙰𝙽𝙰𝙽*
+_______________________________
+[ 𝙽𝙾 𝙰𝙳𝙼𝙸𝙽 𝙱𝚄𝙰𝚃 𝙾𝚁𝙳𝙴𝚁 ]
+*1* 6281329731976
+*2* https://wa.me/6281329731976?text=.buypanel
+🔗 [Order Sosmed](https://wa.me/6281329731976?text=.ordersosmed)
+_____________________________
+all link 
+https://heylink.me/sathyastore
+_____________________________
+MY APK
+[ https://download.bukaolshop.com/files/apk/sathyastore.apk ]
+`;
+
+      document.getElementById("output").innerText = hasil;
+    }
+  </script>
+</body>
+</html>
