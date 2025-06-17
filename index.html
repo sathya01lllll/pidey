@@ -31,6 +31,7 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 10px;
     }
     .output {
       white-space: pre-wrap;
@@ -60,11 +61,14 @@
     </select>
 
     <button onclick="generateTransaksi()">Kirim Transaksi</button>
+    <button onclick="salinTeks()">Salin Teks</button>
   </div>
 
   <div class="output" id="output"></div>
 
   <script>
+    let hasil = "";
+
     function generateTransaksi() {
       const produk = document.getElementById("produk").value;
       const harga = document.getElementById("harga").value;
@@ -73,7 +77,7 @@
         day: '2-digit', month: 'long', year: 'numeric'
       });
 
-      const hasil = `
+      hasil = `
 [ 𝚃𝚁𝙰𝙽𝚂𝙰𝙺𝚂𝙸 𝙱𝙴𝚁𝙷𝙰𝚂𝙸𝙻✅ ]
         𝙱𝚈 : ꜱᴀᴛʜʏᴀ 𝚂𝚃𝙾𝚁𝙴
 
@@ -97,8 +101,19 @@ _____________________________
 MY APK
 [ https://download.bukaolshop.com/files/apk/sathyastore.apk ]
 `;
-
       document.getElementById("output").innerText = hasil;
+    }
+
+    function salinTeks() {
+      if (!hasil) {
+        alert("Silakan buat transaksi terlebih dahulu.");
+        return;
+      }
+      navigator.clipboard.writeText(hasil).then(() => {
+        alert("Teks berhasil disalin!");
+      }).catch(err => {
+        alert("Gagal menyalin teks!");
+      });
     }
   </script>
 </body>
